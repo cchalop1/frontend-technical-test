@@ -1,4 +1,6 @@
 // TODO: fix import conf
+// TODO: add test unit tests
+// TODO: fix date format
 import { Conversation } from "../../types/conversation";
 
 
@@ -12,7 +14,6 @@ type ConversationProps = {
 };
 
 const ConversationCard = ({ conversation }: ConversationProps) => {
-  // TODO: put this parsing in backend
   const lastMessageTime = new Date(conversation.lastMessageTimestamp * 1000);
   const urlProfilePicture = getProfilePictureByUserId(conversation.recipientId);
 

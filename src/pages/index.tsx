@@ -22,7 +22,6 @@ const Home = ({ conversations, error }: HomeProps) => {
   );
 };
 
-// TODO: check type of retrune
 export async function getServerSideProps() {
   try {
     const conversations = await fetchConversations(loggedUserId);
