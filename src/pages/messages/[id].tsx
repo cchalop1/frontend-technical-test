@@ -1,0 +1,48 @@
+import { useRouter } from "next/router";
+import MessageContainer from "../../components/messages/MessageContainer";
+import { loggedUserId } from "../_app";
+import styles from "../../styles/Message.module.css";
+import { fetchConversations, fetchMessages } from "../../services/api";
+import { GetServerSideProps } from "next";
+import { Message } from "../../types/message";
+import { Conversation } from "../../types/conversation";
+import { useEffect } from "react";
+
+type MessagesPageProps = {
+  messages: Message[];
+  conversation: Conversation;
+  error: string | undefined;
+};
+
+const MessagesPage = ({ messages, conversation, error }: MessagesPageProps) => {
+  useEffect(() => {
+    if (error) {
+      alert("Error with server");
+    }
+  }, []);
+  return (
+    <div className={styles.container}>
+      <MessageContainer messages={messages} conversation={conversation} />
+    </div>
+  );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { params } = context;
+  if (!params || !params.id) {
+    return { props: { messages: [], conversation: [], error: "Error" } };
+  }
+  try {
+    const messages = await fetchMessages(Number(params.id));
+    const conversations = await fetchConversations(loggedUserId);
+    const conversation = conversations?.find(
+      (conv) => conv.id === Number(params.id)
+    );
+
+    return { props: { messages, conversation } };
+  } catch (e) {
+    return { props: { messages: [], conversation: [], error: "Error" } };
+  }
+};
+
+export default MessagesPage;

@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.wrapper {
+  border-top: 1px solid black;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.header {
+  background-color: #eeedee;
+  font-weight: bold;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+  overflow-y: scroll;
+  justify-content: flex-end;
+}
+
+.wrapperCard {
+    width: 30%;
+    min-width: 250px;
+}
+
+.sendMessage {
+  display: flex;
+  flex-direction: row;
+}
+
+.sendMessage input {
+    width: 80%;
+}
+
+.sendMessage button {
+    width: 20%;
+
+}
+.buble {
+    padding: 5px 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+
+@media (max-width: 500px) {
+  .lastTime {
+    visibility: collapse;
+  }
+}
