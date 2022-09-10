@@ -1,12 +1,12 @@
-import { useRouter } from "next/router";
-import MessageContainer from "../../components/messages/MessageContainer";
-import { loggedUserId } from "../_app";
-import styles from "../../styles/Message.module.css";
-import { fetchConversations, fetchMessages } from "../../services/api";
-import { GetServerSideProps } from "next";
-import { Message } from "../../types/message";
-import { Conversation } from "../../types/conversation";
 import { useEffect } from "react";
+import { GetServerSideProps } from "next";
+
+import MessageContainer from "@/components/messages/MessageContainer";
+import styles from "@/styles/Message.module.css";
+import { fetchConversations, fetchMessages } from "@/services/api";
+import { Message } from "@/types/message";
+import { Conversation } from "@/types/conversation";
+import { loggedUserId } from "../_app";
 
 type MessagesPageProps = {
   messages: Message[];

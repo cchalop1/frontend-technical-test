@@ -1,7 +1,7 @@
-import { Conversation } from "../../types/conversation";
+import { Conversation } from "@/types/conversation";
 import ConversationCard from "./ConversationCard";
 
-import styles from "../../styles/Conversation.module.css";
+import styles from "@/styles/Conversation.module.css";
 
 type ConversationListProps = {
   conversations: Conversation[];

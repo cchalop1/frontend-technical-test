@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { getLoggedUserId } from "@/utils/getLoggedUserId";
-import MessageCard from "../components/messages/MessageCard";
+import MessageCard from ".@/components/messages/MessageCard";
 import { Conversation } from "../types/conversation";
 import { Message } from "../types/message";
 

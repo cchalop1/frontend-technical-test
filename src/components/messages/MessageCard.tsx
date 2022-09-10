@@ -1,7 +1,7 @@
-import { Conversation } from "../../types/conversation";
-import { Message } from "../../types/message";
-import styles from "../../styles/Message.module.css";
-import { loggedUserId } from "../../pages/_app";
+import { Conversation } from "@/types/conversation";
+import { Message } from "@/types/message";
+import styles from "@/styles/Message.module.css";
+import { loggedUserId } from "@/pages/_app";
 
 type MessageCardProps = {
   message: Message;

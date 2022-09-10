@@ -1,12 +1,11 @@
 // TODO: fix import conf
 // TODO: add test unit tests
 // TODO: fix date format
-import { Conversation } from "../../types/conversation";
+import { Conversation } from "@/types/conversation";
 
 
-import styles from "../../styles/Conversation.module.css";
-import { getProfilePictureByUserId } from "../../utils/getProfileUser";
-import Image from "next/image";
+import styles from "@/styles/Conversation.module.css";
+import { getProfilePictureByUserId } from "@/utils/getProfileUser";
 import Link from "next/link";
 
 type ConversationProps = {

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import ConversationList from "../components/conversation/ConversationList";
-import { fetchConversations } from "../services/api";
-import styles from "../styles/Home.module.css";
+import ConversationList from "@/components/conversation/ConversationList";
+import { fetchConversations } from "@/services/api";
+import styles from "@/styles/Home.module.css";
 import { loggedUserId } from "./_app";
 
 type HomeProps = {
