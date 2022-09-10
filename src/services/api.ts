@@ -31,7 +31,6 @@ export const postMessage = async (convId: number, body: BodyPostMessage) => {
     body: JSON.stringify(body),
   };
   const url = `${API_URL}/messages/${convId}`;
-  console.log(url);
   const res = await fetch(url, option);
   const json = await res.json();
   return json;

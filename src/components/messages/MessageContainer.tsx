@@ -26,7 +26,7 @@ const MessageContainer = ({
       body: messageContent,
       timestamp: Date.now(),
     });
-    if (res.ok) {
+    if (res) {
       setMessageContent("");
       const messagesList = await getMessages(conversation.id);
       setDisplayMessage(messagesList);
