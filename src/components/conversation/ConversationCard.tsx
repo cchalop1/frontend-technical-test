@@ -1,12 +1,9 @@
-// TODO: fix import conf
-// TODO: add test unit tests
-// TODO: fix date format
-import { Conversation } from "@/types/conversation";
-
-
-import styles from "@/styles/Conversation.module.css";
-import { getProfilePictureByUserId } from "@/utils/getProfileUser";
 import Link from "next/link";
+import Image from "next/image";
+
+import { Conversation } from "@/types/conversation";
+import styles from "@/styles/Conversation.module.css";
+import { getProfilePictureByUserId } from "../../utils/getProfileUser";
 
 type ConversationProps = {
   conversation: Conversation;
@@ -20,7 +17,7 @@ const ConversationCard = ({ conversation }: ConversationProps) => {
     <Link href={"messages/" + conversation.id}>
       <div className={styles.card}>
         <div className={styles.imgWrapper}>
-          <img src={urlProfilePicture} alt="profile picture" height={50} />
+          <Image src={urlProfilePicture} alt="profile picture" height={50} width={50} />
         </div>
         <div className={styles.infos}>
           <h3>{conversation.recipientNickname}</h3>

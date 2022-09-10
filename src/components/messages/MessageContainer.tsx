@@ -1,10 +1,10 @@
-import { Conversation } from "@/types/conversation";
-import { Message } from "@/types/message";
-import styles from "@/styles/Message.module.css";
-import MessageCard from "./MessageCard";
-
-import sendIcon from "@/assets/send.svg";
 import Image from "next/image";
+
+import { Conversation } from "../../types/conversation";
+import { Message } from "../../types/message";
+import styles from "../../styles/Message.module.css";
+import MessageCard from "./MessageCard";
+import sendIcon from "../../assets/send.svg";
 
 type MessageContainerProps = {
   messages: Message[];

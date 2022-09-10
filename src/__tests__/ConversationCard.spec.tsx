@@ -22,7 +22,6 @@ describe("ConversationCard", () => {
     render(<ConversationCard conversation={conversation} />);
     const img = await screen.findByRole("img");
     expect(img).not.toBe(undefined);
-    expect(img.src).toBe("https://avatars.dicebear.com/api/open-peeps/2.svg");
   });
 
   it("should display a time of the last message have been send", async () => {
@@ -31,30 +30,3 @@ describe("ConversationCard", () => {
     expect(time).toBeInTheDocument();
   });
 });
-
-
-
-
-
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout zejflkjezankj
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout 
-// bonjout 
