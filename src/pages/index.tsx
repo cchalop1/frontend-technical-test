@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import ConversationList from "@/components/conversation/ConversationList";
-import { fetchConversations } from "@/services/api";
+import { getConversations } from "@/services/api";
 import styles from "@/styles/Home.module.css";
 import { loggedUserId } from "./_app";
 
@@ -24,7 +24,7 @@ const Home = ({ conversations, error }: HomeProps) => {
 
 export async function getServerSideProps() {
   try {
-    const conversations = await fetchConversations(loggedUserId);
+    const conversations = await getConversations(loggedUserId);
     return { props: { conversations } };
   } catch (e) {
     return { props: { conversations: [], error: "Error" } };

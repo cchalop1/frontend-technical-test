@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 
 import MessageContainer from "@/components/messages/MessageContainer";
 import styles from "@/styles/Message.module.css";
-import { fetchConversations, fetchMessages } from "@/services/api";
+import { getConversations, getMessages } from "@/services/api";
 import { Message } from "@/types/message";
 import { Conversation } from "@/types/conversation";
 import { loggedUserId } from "../_app";
@@ -33,8 +33,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return { props: { messages: [], conversation: [], error: "Error" } };
   }
   try {
-    const messages = await fetchMessages(Number(params.id));
-    const conversations = await fetchConversations(loggedUserId);
+    const messages = await getMessages(Number(params.id));
+    const conversations = await getConversations(loggedUserId);
     const conversation = conversations?.find(
       (conv) => conv.id === Number(params.id)
     );

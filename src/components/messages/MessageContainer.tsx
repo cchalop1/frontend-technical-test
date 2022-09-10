@@ -5,6 +5,8 @@ import { Message } from "../../types/message";
 import styles from "../../styles/Message.module.css";
 import MessageCard from "./MessageCard";
 import sendIcon from "../../assets/send.svg";
+import { FormEvent, useState } from "react";
+import { getMessages, postMessage } from "../../services/api";
 
 type MessageContainerProps = {
   messages: Message[];
@@ -15,6 +17,21 @@ const MessageContainer = ({
   conversation,
 }: MessageContainerProps) => {
   const lastMessageTime = new Date(conversation.lastMessageTimestamp * 1000);
+  const [messageContent, setMessageContent] = useState("");
+  const [displayMessages, setDisplayMessage] = useState(messages);
+
+  const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const res = await postMessage(conversation.id, {
+      body: messageContent,
+      timestamp: Date.now(),
+    });
+    if (res.ok) {
+      setMessageContent("");
+      const messagesList = await getMessages(conversation.id);
+      setDisplayMessage(messagesList);
+    }
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -27,7 +44,7 @@ const MessageContainer = ({
         </div>
       </div>
       <div className={styles.list}>
-        {messages.map((message) => (
+        {displayMessages.map((message) => (
           <MessageCard
             key={message.id}
             message={message}
@@ -35,12 +52,18 @@ const MessageContainer = ({
           />
         ))}
       </div>
-      <div className={styles.sendMessage}>
-        <input placeholder="Send message..." type="text" />
-        <button>
+      <form className={styles.sendMessage} onSubmit={sendMessage}>
+        <input
+          placeholder="Send message..."
+          type="text"
+          required
+          value={messageContent}
+          onChange={(e) => setMessageContent(e.target.value)}
+        />
+        <button type="submit">
           <Image src={sendIcon} alt="send icon" />
         </button>
-      </div>
+      </form>
     </div>
   );
 };
